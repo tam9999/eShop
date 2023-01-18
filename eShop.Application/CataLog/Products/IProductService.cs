@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eShop.Application.CataLog.Products
 {
-    public interface IManageProductService
+    public interface IProductService
     {
         Task<int> Create(ProductCreateRequest request);
         Task<ProductViewModel> GetById(int productId, string languageId);
@@ -21,6 +21,7 @@ namespace eShop.Application.CataLog.Products
         Task<int> RemoveImage(int imageId);
         Task<int> UpdateImage(int imageId, ProductImageUpdateRequest request);
         Task<List<ProductImageViewModel>> GetListImages(int productId);
-        Task <ProductImageViewModel> GetImageById(int imageId); 
+        Task<ProductImageViewModel> GetImageById(int imageId);
+        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
     }
 }
